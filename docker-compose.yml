@@ -1,0 +1,26 @@
+#version: "3.9"
+   
+#services:
+  #web:
+    #build: .
+    #command: streamlit run app.py
+    #volumes:
+      #- .:/app
+    #ports:
+      #- "8501:8501"
+
+
+version: "3.9"
+
+services:
+    web:
+        image: streamlit-docker
+        build:
+            dockerfile: ./Dockerfile
+            context: .
+        #environment:
+            #- PORT=${PORT}
+        ports:
+            - "8501:8501"
+        volumes:
+            - .:/app
